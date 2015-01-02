@@ -26,6 +26,10 @@ module.exports = (robot) ->
       auth = null
     auth
 
+  robot.respond /cachet help/i, (msg) ->
+    cmds = robot.helpCommands()
+    cmds = (cmd for cmd in cmds when cmd.match(/(cachet)/))
+    msg.send cmds.join("\n")
 
   robot.respond /cachet components list/i, (msg) ->
     req = robot.http(cachetURL + '/api/components')
@@ -36,7 +40,7 @@ module.exports = (robot) ->
           return
         if res.statusCode is 200
           results = JSON.parse(body)
-          if results.data.length > 0
+          if results.data results.data.length > 0
             output = []
             for result,value of results.data
               message = "Component: " + value['name'] + " -- Status: " + value['status'] + " -- Updated at: " + moment.unix(value['updated_at']).format('HH:MM YYYY/MM/DD')
@@ -56,7 +60,7 @@ module.exports = (robot) ->
           return
         if res.statusCode is 200
           results = JSON.parse(body)
-          if results.data.length > 0
+          if results.data && results.data.length > 0
             output = []
             for result, value of results.data
               message = "Incident: " + value['name'] + " -- Current Status: " + value['human_status'] + " -- Started at: " + moment.unix(value['created_at']).format('HH:MM YYYY/MM/DD') + " -- Last Updated: " + moment.unix(value['updated_at']).format('HH:MM YYYY/MM/DD')
