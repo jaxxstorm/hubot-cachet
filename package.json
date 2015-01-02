@@ -1,0 +1,29 @@
+{
+  "name": "hubot-cachet",
+  "description": "An hubot script to interact with Cachet",
+  "version": "0.1",
+  "authors": [
+    "Lee Briggs <lee@leebriggs.co.uk>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "cachet"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:jaxxstorm/hubot-cachet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaxxstorm/hubot-cachet/issues"
+  },
+  "dependencies": {
+    "moment": ">=1.6.0"
+  },
+  "main": "index.coffee",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
