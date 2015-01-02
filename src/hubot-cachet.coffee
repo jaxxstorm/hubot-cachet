@@ -40,7 +40,7 @@ module.exports = (robot) ->
           return
         if res.statusCode is 200
           results = JSON.parse(body)
-          if results.data results.data.length > 0
+          if results.data && results.data.length > 0
             output = []
             for result,value of results.data
               message = "Component: " + value['name'] + " -- Status: " + value['status'] + " -- Updated at: " + moment.unix(value['updated_at']).format('HH:MM YYYY/MM/DD')
