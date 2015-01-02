@@ -1,7 +1,7 @@
 {
   "name": "hubot-cachet",
   "description": "An hubot script to interact with Cachet",
-  "version": "0.1",
+  "version": "0.1.0",
   "authors": [
     "Lee Briggs <lee@leebriggs.co.uk>"
   ],
